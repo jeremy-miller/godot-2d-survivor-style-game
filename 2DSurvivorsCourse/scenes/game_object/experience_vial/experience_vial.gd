@@ -38,3 +38,4 @@ func on_area_entered(other_area: Area2D):
 	tween.tween_property(sprite, "scale", Vector2.ZERO, 0.05).set_delay(0.45)
 	tween.chain()  # wait for the previous tween method/property to finish before running the callback
 	tween.tween_callback(collect)
+	$RandomStreamPlayer2DComponent.play_random()

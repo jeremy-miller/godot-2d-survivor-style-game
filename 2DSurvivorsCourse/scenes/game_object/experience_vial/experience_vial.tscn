@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2y3ojigxbpk0"]
+[gd_scene load_steps=5 format=3 uid="uid://b2y3ojigxbpk0"]
 
 [ext_resource type="Script" path="res://scenes/game_object/experience_vial/experience_vial.gd" id="1_fjjjc"]
 [ext_resource type="Texture2D" uid="uid://dyjklsjlfuuur" path="res://scenes/game_object/experience_vial/experience_vial.png" id="1_q11ff"]
+[ext_resource type="PackedScene" uid="uid://crmfa34fr7850" path="res://scenes/component/random_stream_player_2d_component.tscn" id="2_jb57s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w4ruu"]
 radius = 16.0
 
 [node name="ExperienceVial" type="Node2D"]
 script = ExtResource("1_fjjjc")
+
+[node name="RandomStreamPlayer2DComponent" parent="." instance=ExtResource("2_jb57s")]
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
