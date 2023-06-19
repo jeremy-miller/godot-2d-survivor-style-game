@@ -33,7 +33,8 @@ func get_spawn_position():
 	var random_direction = Vector2.RIGHT.rotated(randf_range(0, TAU))
 	for i in 4:  # garuanteed that at least one of the four 90-degree directions from the chosen "random_direction" will be inside arena walls
 		spawn_position = player.global_position + (random_direction * SPAWN_RADIUS)
-		var query_parameters = PhysicsRayQueryParameters2D.create(player.global_position, spawn_position, 1 << 0)  # check against "terrain" layer (bit 0 of collision mask)
+		var additional_check_offset = random_direction * 20  # make sure we don't choose a spawn position so close a wall that an enemy sprite gets stuck
+		var query_parameters = PhysicsRayQueryParameters2D.create(player.global_position, spawn_position + additional_check_offset, 1 << 0)  # check against "terrain" layer (bit 0 of collision mask)
 		var result = get_tree().root.world_2d.direct_space_state.intersect_ray(query_parameters)
 		if result.is_empty():  # no wall collisions detected, so spawn_position is inside arena walls
 			break
