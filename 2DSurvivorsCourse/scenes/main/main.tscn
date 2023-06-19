@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://p32ml1bmqoqk"]
+[gd_scene load_steps=13 format=3 uid="uid://p32ml1bmqoqk"]
 
 [ext_resource type="PackedScene" uid="uid://dxrun4isn42do" path="res://scenes/manager/enemy_manager.tscn" id="1_4j7u6"]
 [ext_resource type="TileSet" uid="uid://2wyis5j5wxjk" path="res://resources/tileset.tres" id="1_akrso"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://diuwi127ott07" path="res://scenes/ui/vignette.tscn" id="3_c2elg"]
 [ext_resource type="PackedScene" uid="uid://cfqa66v70wekx" path="res://scenes/manager/experience_manager.tscn" id="4_vp0cp"]
 [ext_resource type="PackedScene" uid="uid://ddfeugalyltx6" path="res://scenes/manager/upgrade_manager.tscn" id="6_43j8k"]
-[ext_resource type="PackedScene" uid="uid://bpsnbu1omjpwm" path="res://scenes/game_object/wizard_enemy/wizard_enemy.tscn" id="7_peiea"]
 [ext_resource type="PackedScene" uid="uid://8qabawitnv2o" path="res://scenes/ui/experience_bar.tscn" id="8_q3xhh"]
 
 [node name="Main" type="Node"]
@@ -29,7 +28,6 @@ experience_manager = NodePath("../ExperienceManager")
 [node name="ArenaTimeManager" parent="." instance=ExtResource("2_hlqg0")]
 
 [node name="EnemyManager" parent="." node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_4j7u6")]
-wizard_enemy_scene = ExtResource("7_peiea")
 arena_time_manager = NodePath("../ArenaTimeManager")
 
 [node name="ExperienceManager" parent="." instance=ExtResource("4_vp0cp")]
@@ -47,8 +45,9 @@ layer_0/tile_data = PackedInt32Array(2883642, 0, 4, 2818106, 0, 4, 2752570, 0, 4
 [node name="Entities" type="Node2D" parent="." groups=["entities_layer"]]
 y_sort_enabled = true
 
-[node name="Player" parent="Entities" instance=ExtResource("1_heejt")]
+[node name="Player" parent="Entities" node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_heejt")]
 unique_name_in_owner = true
 position = Vector2(450, 347)
+arena_time_manager = NodePath("../../ArenaTimeManager")
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]

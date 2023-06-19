@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bx05uij11ufxb"]
+[gd_scene load_steps=7 format=3 uid="uid://bx05uij11ufxb"]
 
 [ext_resource type="Script" path="res://scenes/ui/meta_menu.gd" id="1_8ft46"]
 [ext_resource type="TileSet" uid="uid://2wyis5j5wxjk" path="res://resources/tileset.tres" id="2_e6apn"]
 [ext_resource type="Resource" uid="uid://d3kq37ino1nc6" path="res://resources/meta_upgrades/experience_gain.tres" id="2_v1r4a"]
+[ext_resource type="Resource" uid="uid://dx0dfnm78adna" path="res://resources/meta_upgrades/health_regenration.tres" id="3_youxy"]
 [ext_resource type="PackedScene" uid="uid://dxphb2vw7ui1j" path="res://scenes/ui/meta_upgrade_card.tscn" id="4_shbtd"]
 [ext_resource type="PackedScene" uid="uid://diuwi127ott07" path="res://scenes/ui/vignette.tscn" id="4_wcl0c"]
 
@@ -10,7 +11,7 @@
 process_mode = 3
 layer = 2
 script = ExtResource("1_8ft46")
-upgrades = Array[Resource("res://resources/meta_upgrades/meta_upgrade.gd")]([ExtResource("2_v1r4a")])
+upgrades = Array[Resource("res://resources/meta_upgrades/meta_upgrade.gd")]([ExtResource("2_v1r4a"), ExtResource("3_youxy")])
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_e6apn")
@@ -46,6 +47,10 @@ layout_mode = 2
 [node name="MetaUpgradeCard2" parent="ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("4_shbtd")]
 layout_mode = 2
 
+[node name="NameLabel" parent="ScrollContainer/MarginContainer/GridContainer/MetaUpgradeCard2/MarginContainer/VBoxContainer/PanelContainer" index="0"]
+text = "Test
+Name"
+
 [node name="MetaUpgradeCard3" parent="ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("4_shbtd")]
 layout_mode = 2
 
@@ -77,3 +82,5 @@ text = "Back"
 
 [node name="Vignette" parent="." instance=ExtResource("4_wcl0c")]
 layer = 3
+
+[editable path="ScrollContainer/MarginContainer/GridContainer/MetaUpgradeCard2"]
